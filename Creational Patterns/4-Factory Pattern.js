@@ -15,20 +15,20 @@ class Car {
 
 // This Class will Include Function the Create the Car From The Factory Automatic
 class CarFactory {
-  createCar(type, doors, engine, color) {
+  createCar(type) {
     switch (type) {
       case "civic":
-        return new Car(doors, engine, color);
+        return new Car(4, "A10", "green");
       case "honda":
-        return new Car(doors, engine, color);
+        return new Car(10, "A5", "red");
     }
   }
 }
 
 const factory = new CarFactory();
 
-const civic = factory.createCar("civic", 4, "A10", "green");
-const honda = factory.createCar("honda", 10, "A5", "red");
+const civic = factory.createCar("civic");
+const honda = factory.createCar("honda");
 
 console.log(civic);
 console.log(honda);
