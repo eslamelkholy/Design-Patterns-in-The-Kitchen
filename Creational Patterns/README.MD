@@ -4,5 +4,6 @@
 
 - Class With Prototype in Class Patterns
 - Constructor
-- Singleton & Abstract Factory
-- Builder
+- Singleton
+- Abstract Pattern
+- Abstract Factory [ To Get Abstraction Layer With All Factories ]
