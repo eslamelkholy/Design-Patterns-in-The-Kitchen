@@ -1,3 +1,9 @@
+/**
+  Singleton Design Pattern
+  Use Case: When you need Only One Instance At Every Creation Of New Object
+  e.g Database Connection , Logs Over alll The Application, ....
+ */
+
 let instance = null;
 
 class Car {
