@@ -20,6 +20,8 @@ class Shipping {
 class UPS {
   constructor() {
     this.calculate = function (packageMoney) {
+      console.log("Passed Package Money Here");
+      console.log(packageMoney);
       // calculations...
       return "$45.95";
     };
@@ -29,6 +31,8 @@ class UPS {
 class USPS {
   constructor() {
     this.calculate = function (packageMoney) {
+      console.log("Passed Package Money Here");
+      console.log(packageMoney);
       // calculations...
       return "$39.40";
     };
@@ -38,6 +42,8 @@ class USPS {
 class Fedex {
   constructor() {
     this.calculate = function (packageMoney) {
+      console.log("Passed Package Money Here");
+      console.log(packageMoney);
       // calculations...
       return "$43.20";
     };
