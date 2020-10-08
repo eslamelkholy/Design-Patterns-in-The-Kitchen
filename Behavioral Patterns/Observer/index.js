@@ -2,6 +2,11 @@
  * Observer Pattern
  * List of Objects Based On Event and Updating Data based on this Event
  * It's Like Publish and Subscribe at Meteorjs and Angular
+ * You Can Easily Implement This Design Pattern at React Using Hooks
+ * and Makes The UseEffect Dependencies to Handle the Changes in the Event
+ * This Article Perfect With Real Case Senario
+ * https://medium.com/javascript-in-plain-english/react-hooks-and-the-observer-pattern-1e4274f0e5f5
+ * Enjoy
  */
 
 class Car {
