@@ -17,7 +17,6 @@ class TrafficTower {
     return this.airplanes.map((airplane) => airplane.position);
   }
 }
-
 class AirPlane {
   constructor(position, trafficTower) {
     this.position = position;
@@ -29,11 +28,10 @@ class AirPlane {
     return this.trafficTower.requestPositions();
   }
 }
-
 const trafficTower = new TrafficTower();
 
 const airPlane1 = new AirPlane("Mansoura", trafficTower);
 const airPlane2 = new AirPlane("Cairo", trafficTower);
 const airPlane3 = new AirPlane("Alex", trafficTower);
 
-console.log(trafficTower.requestPositions());
+console.log(trafficTower.requestPositions()); // ['Mansoura', 'Cairo', 'Alex']
