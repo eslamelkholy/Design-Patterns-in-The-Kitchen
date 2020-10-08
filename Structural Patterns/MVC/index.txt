@@ -1,0 +1,13 @@
+This The Most Popular Design Pattern 
+
+MVC >> [Model, View, Controller]
+
+Model >> Related to Data and how to Store it into Classes,..
+
+View >> The Data View Basically HTML, CSS,...
+
+Controller >> The Actual Bussiness Logic Encapsulated Here
+
+Most Popular Frameworks Using it Like Express Boilerplate, Laravel, Django,...
+But Django have shuffle two :D
+

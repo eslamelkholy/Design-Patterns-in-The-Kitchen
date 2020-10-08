@@ -1,0 +1,15 @@
+MVP Design Pattern
+
+MODEL VIEW PRESENTER
+
+Which Is Loosely Based on MVC
+
+Here View Not Have Access to MODEL
+
+ONLY VIEW Can Access The PRESENTER And PRESENTER Access the Model
+
+So it's more Abstract layer than MVC And this the Difference between them 
+
+So The VIEW Here has to get all Data From Presenter and Presenter Serves The Logic
+
+This Pattern So Popular with Andriod Developers
