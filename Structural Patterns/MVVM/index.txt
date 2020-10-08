@@ -1,0 +1,17 @@
+MVVM Design Pattern
+
+MODEL VIEW VIEW MODEL
+
+IT Similar than the other two MVC And MVP
+
+IS Different only in Implementation again
+
+And it also Sometimes referred to MVVC >> MODEL VIEW VIEW Controller
+
+This Pattern is So Popular at REACT / ANGULAR
+
+Example With REACT
+
+1- Stateless Component >> [ View ]
+2- Stateful Component Which Holds Data & Logic >> [ VIEW, MODEL ]
+3- Connect to The Back-End End Points >> [ MODEL ]
