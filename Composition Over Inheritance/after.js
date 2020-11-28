@@ -2,7 +2,6 @@
  * Composition
  * Definition:
  * Describe Exactly what Object Can Do
- *
  */
 
 class Monster {
