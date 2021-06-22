@@ -162,8 +162,8 @@ For the Maintainability and Success Of The Project<br />
 Let's Say we Have A Service(A) >>>>>>>> Service(B)<br />
 We want these Services Talks With Each Other and also Reuse These Services in Different Places<br />
 So Every time we will Create new Instance From This Service ? <br />
-The First Thing Comes in your Mind is to Make It as Singleton <br />
-And that's Also what is i was Thinking about at First <br />
+The First Thing Comes in your Mind is to Make It as Singleton 
+And that's Also what is i was Thinking about at First 
 But we still have a Problem here is Related to<br />
 1- Mock Our Services <br />
 2- Let's Say i will change the whole Object Also<br />
