@@ -53,7 +53,7 @@ by Providing a Fluent interface allow us to Build Object Step by Step
 The Complex Object here is Reference to Object that The Creation of it Takes alot of things
 Like Takes alot Of Paramters as Input, have a long steps to Create it
 
-##### in The WILD
+##### in The Wild
 Builder is Common patterns in JS As **Superagent** Already Uses Builder Pattern
 Because Request takes too many Paramters to it as an input [Superagent Builder Source Code ](https://github.com/visionmedia/superagent/blob/40424e62fbf534823b18b64a8f5f0a6680606cbe/src/client.js#L427)
 
@@ -119,3 +119,34 @@ export class UrlBuilder {
   }
 }
 ```
+
+#### Singleton Design Pattern
+The Purpose of Singleton is to Enforece the Presence of only one instance of class and Centralize it's Access
+
+Use Case:
+  - Sharing Stateful Information
+  - Optimize the Resource of Usage
+  - Synchronize access to Resource
+In The Wild:
+  Database Connection Already Using This Pattern
+The Easiest Way to Create Singleton in Nodejs is Just to **Cache the Module**
+
+**Singleton Code Snippet**
+```javascript
+class Calculator {
+  constructor(initialVal) {
+    this.initialVal = initialVal;
+  }
+  increase(val) {
+    this.initialVal += parseInt(val);
+  }
+  total() {
+    return this.initialVal;
+  }
+}
+module.exports = new Calculator(0);
+```
+
+
+
+
