@@ -45,3 +45,77 @@ const image2 = createImage('photo.gif')
 const image3 = createImage('photo.png')
 ```
 
+#### Builder Design Pattern
+
+Builder is Used to Simplifies the Creation of Complex Object 
+by Providing a Fluent interface allow us to Build Object Step by Step
+**The First Question is What's Complex Object and how this Help me ?**
+The Complex Object here is Reference to Object that The Creation of it Takes alot of things
+Like Takes alot Of Paramters as Input, have a long steps to Create it
+
+##### in The WILD
+Builder is Common patterns in JS As **Superagent** Already Uses Builder Pattern
+Because Request takes too many Paramters to it as an input [Superagent Builder Source Code ](https://github.com/visionmedia/superagent/blob/40424e62fbf534823b18b64a8f5f0a6680606cbe/src/client.js#L427)
+
+**Builder Code Snippet**
+
+Builder Result Object
+```javascript
+import { UrlBuilder } from './urlBuilder.js'
+
+const url = new UrlBuilder()
+  .setProtocol('https')
+  .setAuthentication('user', 'pass')
+  .setHostname('example.com')
+  .build()
+
+```
+
+Builder Class
+Note  **return this** it's Related to Chain of Responsibilites we will talk later about this Pattern
+
+```javascript
+export class UrlBuilder {
+  setProtocol (protocol) {
+    this.protocol = protocol
+    return this
+  }
+
+  setAuthentication (username, password) {
+    this.username = username
+    this.password = password
+    return this
+  }
+
+  setHostname (hostname) {
+    this.hostname = hostname
+    return this
+  }
+
+  setPort (port) {
+    this.port = port
+    return this
+  }
+
+  setPathname (pathname) {
+    this.pathname = pathname
+    return this
+  }
+
+  setSearch (search) {
+    this.search = search
+    return this
+  }
+
+  setHash (hash) {
+    this.hash = hash
+    return this
+  }
+
+  build () {
+    return new Url(this.protocol, this.username, this.password,
+      this.hostname, this.port, this.pathname, this.search,
+      this.hash)
+  }
+}
+```
