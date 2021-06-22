@@ -1,41 +1,47 @@
-# Design Patterns
+# Nodejs Design Patterns
+Design Pattern is a Reusable Solution to Recurring Problem
+were Popularized in the 90s by the almost Legendary Gang of Four (GoF)
+Split into Three Things Creational, Structural , Behavioral Patterns
 
-### This Repo Related to Explore All Design Patterns With Javascript
+### Creational Design Patterns
 
-#### Javascript Introduction
+Creational Design Patterns Solved Alot Of Problems Related to The Creation Of Object 
+Split into Multiple Patterns
+- Factory 
+- Builder
+- Singleton
+- Revealing Constructor (Not Related to GoF Patterns)
 
-- Functions as First-Class Citizen
-- CallBacks Behaviours as a Function Called inside another Function
-- Promises and Workign with Async Patterns
 
-#### Creational Patterns
+#### Abstract Factory Design Pattern
 
-- Class In Javascript
-- Constructor Pattern With inheritance
-- Singletone
-- Abstract
-- Abstract Factory Patterns
-- More...
+- Solved Problem
+1- Decouple the Creation of an Object from Implementation
+2- also can used to Enforce the Encapsulation by Leveraging Closures
 
-#### Structural Patterns
+What's Meaning By Decouple Creation here ? 
+like if i want to Refactor Class and add new Classes Will be Dynamically to add new Type
+**Abstract Factory Dynamic Class Code Snippet**
 
-- Modules
-- Minxins
-- Facade
-- Flyweight
-- Decorator
-- MVC
-- MVP
-- MVVM
-- More....
+```javascript 
+import { ImageGif } from './imageGif.js'
+import { ImageJpeg } from './imageJpeg.js'
+import { ImagePng } from './imagePng.js'
 
-#### Behavioral Patterns
+function createImage (name) {
+  if (name.match(/\.jpe?g$/)) {
+    return new ImageJpeg(name)
+  } else if (name.match(/\.gif$/)) {
+    return new ImageGif(name)
+  } else if (name.match(/\.png$/)) {
+    return new ImagePng(name)
+  } else {
+    throw new Error('Unsupported format')
+  }
+}
 
-- Observer
-- State
-- Strategy
-- Command
-- Mediator
-- Memento
-- Iterator
-- Chain Of Responsibility
+const image1 = createImage('photo.jpg')
+const image2 = createImage('photo.gif')
+const image3 = createImage('photo.png')
+```
+
