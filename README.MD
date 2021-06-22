@@ -2,7 +2,6 @@
 Design Pattern is a Reusable Solution to Recurring Problem
 were Popularized in the 90s by the almost Legendary Gang of Four (GoF)
 Split into Three Things Creational, Structural , Behavioral Patterns
-
 ### Creational Design Patterns
 
 Creational Design Patterns Solved Alot Of Problems Related to The Creation Of Object 
@@ -147,6 +146,63 @@ class Calculator {
 module.exports = new Calculator(0);
 ```
 
+#### Wiring Modules (This One of the Most Interesting Topics Singleton + Dependency injection)
 
+Every App is The Result of Aggregation of Several Components and App Grows,
+the Way we connect these Components Becomses Win Or Lose Factor
+For the Maintainability and Success Of The Project
+[This Great Quote From Nodejs Design Patterns Book And Most of Code Snippets Also](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110)
 
+Let's Say we Have A Service(A) >>>>>>>> Service(B)
+We want these Services Talks With Each Other and also Reuse These Services in Different Places
+So Every time we will Create new Instance From This Service ? 
+The First Thing Comes in your Mind is to Make It as Singleton 
+And that's Also what is i was Thinking about at First 
+But we still have a Problem here is Related to
+1- Mock Our Services 
+2- Let's Say i will change the whole Object Also
+these Two Problem Can Solve by **Dependency Injection**
+Just Inject The Object to Another Objection Constructor
 
+#### Dependency Injection
+Module System with Singleton can Servce as Great Tool for Organizing and Wiring Component Together
+
+but on the other hand they Might Be Tighter Coupling between Components
+
+So Dependency Injection is the Ideal Solution for Wiring Modules Together,
+And Solving The Coupling between Modules, and Mock Test Cases
+
+Purpose:
+ - Solving Thightly Coupled Between Modules
+ - Mock Services Easily
+
+So Now The Communication Between Services is Become Easy By Using
+**Singleton + Dependency Injection**
+
+**Dependency Injection Code Snippet**
+```javascript
+export class Blog {
+  constructor (db) {
+    this.db = db
+    this.dbRun = promisify(db.run.bind(db))
+    this.dbAll = promisify(db.all.bind(db))
+  }
+  initialize () {}
+  createPost (id, title, content, createdAt) {}
+  getAllPosts () {}
+}
+```
+
+```javascript
+import { Blog } from './blog.js'
+
+const db = createDb(join(__dirname, 'data.sqlite'))
+const blog = new Blog(db)
+```
+
+#### Conclusion
+Most of Frameworks already Using these Staff like Nestjs, Laravel,...
+by Another Pattern Called Inversion of Control  (IOC) 
+Allows us to Shift the Responsibilites of Wiring
+modules to Third Party Package Called (IOC Containers)
+One of the Most Interseting Typescript IOC Container is [InversifyJS](https://www.npmjs.com/package/inversify)
