@@ -156,18 +156,18 @@ module.exports = new Calculator(0);
 
 Every App is The Result of Aggregation of Several Components and App Grows,
 the Way we connect these Components Becomses Win Or Lose Factor
-For the Maintainability and Success Of The Project
+For the Maintainability and Success Of The Project<br />
 [This Great Quote From Nodejs Design Patterns Book And Most of Code Snippets Also](https://www.packtpub.com/product/node-js-design-patterns-third-edition/9781839214110)
 
-Let's Say we Have A Service(A) >>>>>>>> Service(B)
-We want these Services Talks With Each Other and also Reuse These Services in Different Places
-So Every time we will Create new Instance From This Service ? 
-The First Thing Comes in your Mind is to Make It as Singleton 
-And that's Also what is i was Thinking about at First 
-But we still have a Problem here is Related to
-1- Mock Our Services 
-2- Let's Say i will change the whole Object Also
-these Two Problem Can Solve by **Dependency Injection**
+Let's Say we Have A Service(A) >>>>>>>> Service(B)<br />
+We want these Services Talks With Each Other and also Reuse These Services in Different Places<br />
+So Every time we will Create new Instance From This Service ? <br />
+The First Thing Comes in your Mind is to Make It as Singleton <br />
+And that's Also what is i was Thinking about at First <br />
+But we still have a Problem here is Related to<br />
+1- Mock Our Services <br />
+2- Let's Say i will change the whole Object Also<br />
+these Two Problem Can Solve by **Dependency Injection**<br />
 Just Inject The Object to Another Objection Constructor
 
 #### Dependency Injection
