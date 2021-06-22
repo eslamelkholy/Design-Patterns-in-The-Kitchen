@@ -18,8 +18,14 @@ Split into Multiple Patterns
 1- Decouple the Creation of an Object from Implementation
 2- also can used to Enforce the Encapsulation by Leveraging Closures
 
-What's Meaning By Decouple Creation here ? 
-like if i want to Refactor Class and add new Classes Will be Dynamically to add new Type
+What's Meaning By Decouple Creation here ? <br />
+like if i want to Refactor Class and add new Classes Will be Dynamically to add new Type<br />
+E.G:
+Need to Add a Class Handles the Logic Of The Creation of Gif Image<br />
+and another one for JPEG Image and so on<br />
+if i want to add new Class for Another Different Images and Code Still Clean?<br />
+So The Best way to do That is Abstract Factory Pattern<br />
+
 **Abstract Factory Dynamic Class Code Snippet**
 
 ```javascript 
