@@ -233,3 +233,47 @@ Structural Design Patterns Are Focused on Prodividing ways To Realize Relationsh
 - Proxy: A Pattern That Allows us to Control Access to Another Object
 - Decorator: A Common Pattern to Enhance and Add New Functionality to Existing Object
 - Adapter: Allows us to Access the Functionality Of Object Using Different Interface like a Wrapper
+
+#### Proxy Design Pattern
+
+Proxy Pattern Mainly Control Access to Another Object Called **Subject**
+The Proxy and Subject Have Identical The Same Interface (E.G Function names)
+
+![](StructuralPatterns/Proxy/Proxy.png)
+
+- Use Case Decouple the Creation of an Object from Implementation
+  1- **Data Validation**: The Proxy Validates the INput Before Forwarding it to the Subject
+  1- **Security**: Proxy Verifies that the Client is Authorized to Perform the functionality
+  1- **Caching**: The Proxy Keeps internal Cache so that the Proxied Operation are executed
+  1- **Logging**: Before Execute the Subject Functionality we can Easily log anything
+
+If You Want Fully Code check Proxy Folder inside **StructuralPatterns**
+
+##### in The Wild
+
+- LoopBack: Framework Using Proxy to intercept and enhance method calls on Controllers & Custom Validation
+- Vuejs Version3: Has reimplemented Observable properties using Proxy Pattern
+  **Proxy Code Snippet**
+
+```javascript
+class Calculator {
+  divide(dividend, divisor) {
+    const result = dividend / divisor;
+    return result;
+  }
+}
+
+class SafeCalculator {
+  constructor(calculator) {
+    this.calculator = calculator;
+  }
+  divide(dividend, divisor) {
+    if (divisor === 0) {
+      throw Error('Division by 0');
+    }
+    return this.calculator.divide(dividend, divisor);
+  }
+}
+const calculator = new Calculator();
+const safeCalculator = new SafeCalculator(calculator);
+```
