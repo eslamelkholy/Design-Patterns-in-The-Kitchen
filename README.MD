@@ -241,11 +241,12 @@ The Proxy and Subject Have Identical The Same Interface (E.G Function names)
 
 ![](StructuralPatterns/Proxy/Proxy.png)
 
-- Use Case Decouple the Creation of an Object from Implementation
-  1- **Data Validation**: The Proxy Validates the INput Before Forwarding it to the Subject
-  1- **Security**: Proxy Verifies that the Client is Authorized to Perform the functionality
-  1- **Caching**: The Proxy Keeps internal Cache so that the Proxied Operation are executed
-  1- **Logging**: Before Execute the Subject Functionality we can Easily log anything
+##### Use Cases
+
+- **Data Validation**: The Proxy Validates the INput Before Forwarding it to the Subject <br />
+- **Security**: Proxy Verifies that the Client is Authorized to Perform the functionality <br />
+- **Caching**: The Proxy Keeps internal Cache so that the Proxied Operation are executed <br />
+- **Logging**: Before Execute the Subject Functionality we can Easily log anything <br />
 
 If You Want Fully Code check Proxy Folder inside **StructuralPatterns**
 
@@ -253,7 +254,8 @@ If You Want Fully Code check Proxy Folder inside **StructuralPatterns**
 
 - LoopBack: Framework Using Proxy to intercept and enhance method calls on Controllers & Custom Validation
 - Vuejs Version3: Has reimplemented Observable properties using Proxy Pattern
-  **Proxy Code Snippet**
+
+**Proxy Code Snippet**
 
 ```javascript
 class Calculator {
@@ -276,4 +278,54 @@ class SafeCalculator {
 }
 const calculator = new Calculator();
 const safeCalculator = new SafeCalculator(calculator);
+```
+
+#### Decorator Design Pattern
+
+Structural Design Pattern That Consists in Dynamically Augmenting the Behavior of Existing Object
+it's Very Similar to Proxy Design Pattern But There is Some Difference <br />
+
+**Diff Between Proxy & Decorator**
+_Decotrator_: Allows to Enhance the Functionality of Existing Object with new Behavior <br />
+_Proxy_: is Used to Control the Access to A Concrete or Virtual Object <br />
+
+If You Look at this Picture you will see MethodC() has been added Not Like the same we did at Proxy
+there is not New Functionality their
+
+![](StructuralPatterns/Decorator/Decorator.png)
+
+##### Use Cases
+
+One of the most Use Case here if you want to Enhance the Functionality of Existing Object
+so After Google Created LevelUp Database Most of Developers Enhanced it and used it in different Senarios
+You Can Look at this Repo [Awesome-levelUp-Database](https://github.com/Level/awesome)
+
+If You Want Fully Code check Decorator Folder inside **StructuralPatterns**
+
+**Proxy Code Snippet**
+
+```javascript
+class Calculator {
+  divide(dividend, divisor) {
+    const result = dividend / divisor;
+    return result;
+  }
+}
+
+class EnhancedCalculator {
+  constructor(calculator) {
+    this.calculator = calculator;
+  }
+  add(X, Y) {
+    return X + Y;
+  }
+  divide(dividend, divisor) {
+    if (divisor === 0) {
+      throw Error('Division by 0');
+    }
+    return this.calculator.divide(dividend, divisor);
+  }
+}
+const calculator = new Calculator();
+const enhancedCalculator = new EnhancedCalculator(calculator);
 ```
