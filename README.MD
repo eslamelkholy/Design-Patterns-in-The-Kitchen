@@ -285,7 +285,7 @@ const safeCalculator = new SafeCalculator(calculator);
 Structural Design Pattern That Consists in Dynamically Augmenting the Behavior of Existing Object
 it's Very Similar to Proxy Design Pattern But There is Some Difference <br />
 
-**Diff Between Proxy & Decorator**
+**Diff Between Proxy & Decorator** <br />
 _Decotrator_: Allows to Enhance the Functionality of Existing Object with new Behavior <br />
 _Proxy_: is Used to Control the Access to A Concrete or Virtual Object <br />
 
@@ -302,7 +302,7 @@ You Can Look at this Repo [Awesome-levelUp-Database](https://github.com/Level/aw
 
 If You Want Fully Code check Decorator Folder inside **StructuralPatterns**
 
-**Proxy Code Snippet**
+**Decorator Code Snippet**
 
 ```javascript
 class Calculator {
@@ -328,4 +328,49 @@ class EnhancedCalculator {
 }
 const calculator = new Calculator();
 const enhancedCalculator = new EnhancedCalculator(calculator);
+```
+
+#### Adapter Design Pattern
+
+The Adapter Patterns allows us to Access the Functionality of an Object Using Different Interface
+Like a Wrapper Around any Functionality
+
+##### Real Life Example
+
+adapter would be a Device that allows you to Plug a USB Type-A Cable into USB Type-C Port
+
+##### Use Cases
+
+- **Payment Online Solution**: that you're Going to Wrap you Payment Online Like Stripe/Paypal
+  and Easy you Can Change Between Payment Gateways
+  [Dependency-Inversion-With-Payment-Gateway-Using-Stripe-Paypal](https://github.com/eslamelkholy/Dependency-Inversion-With-Payment-Gateway-Using-Stripe-Paypal) <br />
+
+- **JugglingDB**: Multi Database ORM Using Multiple Adapter to Be Compatible with Different Database <br />
+
+We Are Going to Wrap fs-module and makes our Fs-module and Saving the Result in memory instead of File <br />
+
+If You Want Fully Code check Adapter Folder inside **StructuralPatterns** and also Highly Recomended Check This Repo
+if you want to know more about Adapter and Dependency Invesion Principle [Dependency-Inversion-With-Payment-Gateway-Using-Stripe-Paypal](https://github.com/eslamelkholy/Dependency-Inversion-With-Payment-Gateway-Using-Stripe-Paypal)
+
+**Adapter Code Snippet**
+
+```javascript
+import FsMemoryAdapter from './fs-adapter-memory.js';
+import VirtualMemory from './virtualMemory.js';
+
+const db = new VirtualMemory();
+const fs = new FsMemoryAdapter(db);
+
+fs.writeFile('file.txt', 'Hello!', () => {
+  fs.readFile('file.txt', { encoding: 'utf8' }, (err, res) => {
+    if (err) {
+      return console.error(err);
+    }
+    console.log(res);
+  });
+});
+// try to read a missing file
+fs.readFile('missing.txt', { encoding: 'utf8' }, (err, res) => {
+  console.error(err);
+});
 ```
