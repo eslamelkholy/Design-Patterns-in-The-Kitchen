@@ -405,6 +405,11 @@ Change Part Of Algorithm at Runtime and Easily change the whole Logic Based on C
 - if you would like change the way you're Calculating the fees at the runtime
 - Like if you want to Implement A Feature Loading Data from A Configuration File one is Json and the other is .ini
 
+##### In The Wild
+
+- Passport Authentication Library already Uses Strategy To Separate the Common Logic during Authentication Process Like
+  Facebook / Twitter and other Social media Authentication
+
 ##### Note Strategy / Adapter Difference
 
 Strategy & Adapter patterns looks similar to Each others but Adapter Doesn't Add any Behavior Just makes it under another interface
@@ -456,3 +461,13 @@ console.log('UPS Strategy: ' + shipping.calculate(packageMoney));
 shipping.setStrategy(fedex);
 console.log('Fedex Strategy: ' + shipping.calculate(packageMoney));
 ```
+
+#### State Design Pattern
+
+State Pattern is Specialization of Strategy Pattern Where the Strategy Changes Depending On The State of The Context
+Because Normal Strategy Remains unChanged For THe Rest of Lifespan Of Context Object
+
+One of the Best Example you can See at the Reactjs App If Anything Changed already Conflict on the Whole Page
+Without Refresh
+
+##### You Can Check the Whole Code Snippet at the Directory BehavioralPatterns/State
