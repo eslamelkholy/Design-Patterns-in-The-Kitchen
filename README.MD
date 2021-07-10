@@ -490,6 +490,11 @@ Template: The Complete Component is Determined the moment the concrete class is 
 
 Template **use Case** might be More Suitable where we want to create prepackaged variations of Component
 
+##### In The Wild
+
+when you want to Create you Own Custom Stream and Extends Readable, Writable,... etc
+You Must Implements Methods like read(), write(), and so On The Create your Custom Stream
+
 **Template Code Snippet**
 
 ```javascript
