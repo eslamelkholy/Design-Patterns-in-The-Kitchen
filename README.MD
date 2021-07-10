@@ -374,3 +374,80 @@ fs.readFile('missing.txt', { encoding: 'utf8' }, (err, res) => {
   console.error(err);
 });
 ```
+
+### Behavioral Design Patterns
+
+Mainly Focus at the Behavior of the Component and how Combine Objects and how to Define
+The Way the Communicates with Each Other
+
+#### Major Problems Mainly Creational Design Patterns Focus on
+
+- How Do i Change Part of Algorithm at the Run time
+- How Change Behavior of Object Based on State
+- How Do i Iterate over Collection Without Knowing the Implementation
+
+#### Behavioral Design Patterns Are Focused on Prodividing ways Make Communication between Object Easier
+
+- Strategy: Helps Us Change Parts of Components to Adapt it to Specific needs
+- State: Allows us to Change Behavior of Component based on State
+- Template: Allows us to Reuse the Structure of Component to Define new One
+- Iterator: Iterate over collection without knowing implementation
+- Command: Handle Information Transfered , stored and Processed
+
+#### Strategy Design Pattern
+
+Change Part Of Algorithm at Runtime and Easily change the whole Logic Based on Context<br />
+
+![](BehavioralPatterns/Strategy/Strategy.png)
+
+##### Use Cases
+
+- if you would like change the way you're Calculating the fees at the runtime
+- Like if you want to Implement A Feature Loading Data from A Configuration File one is Json and the other is .ini
+
+**Strategy Code Snippet**
+
+```javascript
+class Shipping {
+  constructor() {
+    this.company = '';
+  }
+  setStrategy(company) {
+    this.company = company;
+  }
+  calculate(packageMoney) {
+    return this.company.calculate(packageMoney);
+  }
+}
+
+class UPS {
+  constructor() {
+    this.calculate = function (packageMoney) {
+      console.log('Passed Package Money Here');
+      console.log(packageMoney);
+      // calculations...
+      return '$45.95';
+    };
+  }
+}
+class Fedex {
+  constructor() {
+    this.calculate = function (packageMoney) {
+      console.log('Passed Package Money Here');
+      console.log(packageMoney);
+      // calculations...
+      return '$43.20';
+    };
+  }
+}
+// Two Strategy
+var ups = new UPS();
+var fedex = new Fedex();
+// Context we have
+var shipping = new Shipping();
+shipping.setStrategy(ups);
+console.log('UPS Strategy: ' + shipping.calculate(packageMoney));
+
+shipping.setStrategy(fedex);
+console.log('Fedex Strategy: ' + shipping.calculate(packageMoney));
+```
