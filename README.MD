@@ -535,3 +535,77 @@ var fedex = new Fedex();
 console.log('UPS Strategy: ' + ups.calculate(packageMoney));
 console.log('USPS Strategy: ' + fedex.calculate(packageMoney));
 ```
+
+#### Iterator Design Pattern
+
+Iterator Pattern Defines a Common Interface or Protocol for Iterating The Elements of Container
+Such As Array or Tree Data Structure
+**iterate** Different Depends on the Data Structure
+
+##### Benefits Of Iterator Design Patterns
+
+Decouple the Implementation of Traversal Algorithm From The Way We Consume The Result
+
+##### Implementation Of Iterator
+
+Iterator Pattern is self have so many Different Ways to Implement It, <br/>
+Like Iterate over Arrays, Iterate over Async Operation Using Generator or Normal Function and so Many things
+Here we will use Something Called Javascript Protocol Comes with ES5 Help Us To implement Iterator Pattern
+Easily with Normal Async Operations
+
+##### Use Case (Very Important and Commonly Used)
+
+- Iterate over Data Paginated By REST API and Want to Get All Data
+- Iterate over Requests Received By Http Service
+- Iterate over Result of an SQL Query
+
+##### Example
+
+We Are going To Implement Simple Example Send Request to Multiple URLs And Check if Available Or Not
+
+**Iterator Code Snippet**
+
+```javascript
+import superagent from 'superagent';
+export class CheckUrls {
+  constructor(urls) {
+    this.urls = urls;
+  }
+
+  [Symbol.asyncIterator]() {
+    const urlsIterator = this.urls[Symbol.iterator]();
+
+    return {
+      async next() {
+        const iteratorResult = urlsIterator.next();
+        if (iteratorResult.done) {
+          return { done: true };
+        }
+
+        const url = iteratorResult.value;
+        try {
+          const checkResult = await superagent.head(url).redirects(2);
+          return {
+            done: false,
+            value: `${url} is up, status: ${checkResult.status}`,
+          };
+        } catch (err) {
+          return {
+            done: false,
+            value: `${url} is down, error: ${err.message}`,
+          };
+        }
+      },
+    };
+  }
+}
+
+const checkUrls = new CheckUrls([
+  'https://nodejsdesignpatterns.com',
+  'https://example.com',
+  'https://mustbedownforsurehopefully.com',
+]);
+for await (const status of checkUrls) {
+  console.log(status);
+}
+```
