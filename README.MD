@@ -405,6 +405,11 @@ Change Part Of Algorithm at Runtime and Easily change the whole Logic Based on C
 - if you would like change the way you're Calculating the fees at the runtime
 - Like if you want to Implement A Feature Loading Data from A Configuration File one is Json and the other is .ini
 
+##### Note Strategy / Adapter Difference
+
+Strategy & Adapter patterns looks similar to Each others but Adapter Doesn't Add any Behavior Just makes it under another interface
+so the difference that strategy looks Dynamic and Easily Change but adapter is Static without and Behavior
+
 **Strategy Code Snippet**
 
 ```javascript
