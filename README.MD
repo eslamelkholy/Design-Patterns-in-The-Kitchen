@@ -562,6 +562,7 @@ Easily with Normal Async Operations
 ##### Example
 
 We Are going To Implement Simple Example Send Request to Multiple URLs And Check if Available Or Not
+Also Check Directory BehavioralPatterns/Iterator Pattern For More Example Using Generators
 
 **Iterator Code Snippet**
 
