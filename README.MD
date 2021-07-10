@@ -16,9 +16,10 @@ Split into Multiple Patterns
 
 #### Abstract Factory Design Pattern
 
-- Solved Problem
-  1- Decouple the Creation of an Object from Implementation
-  2- also can used to Enforce the Encapsulation by Leveraging Closures
+**Solved Problem**
+
+- Decouple the Creation of an Object from Implementation
+- also can used to Enforce the Encapsulation by Leveraging Closures
 
 What's Meaning By Decouple Creation here ? <br />
 like if i want to Refactor Class and add new Classes Will be Dynamically to add new Type<br />
@@ -610,3 +611,21 @@ for await (const status of checkUrls) {
   console.log(status);
 }
 ```
+
+#### Command Design Pattern
+
+A Command Pattern can be any Object that Encapsulates all the Information neccessary To Perform an Action at later Time
+So, instead of invoking a method or a function directly, we create an object representing the intention to
+perform such an invocation.
+
+Most of Functionality has been used to undo(), delay() , run() Speicific Operations
+
+![](BehavioralPatterns/Command/Command.png)
+
+#### In The Wild
+
+The Best Example of Command Pattern at the Wild is Redux
+That Separate the Action From The Execution That updated the Reducers
+it's also often has Been Using In Functional Programming
+
+#### Fully Example you Can Find in The Directory BehavioralPattern/Command
