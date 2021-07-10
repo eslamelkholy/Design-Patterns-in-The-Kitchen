@@ -471,3 +471,62 @@ One of the Best Example you can See at the Reactjs App If Anything Changed alrea
 Without Refresh
 
 ##### You Can Check the Whole Code Snippet at the Directory BehavioralPatterns/State
+
+#### Template Design Pattern
+
+Defines Abstract Class that Implements the Skeleton ( Represent Common Parts )<br />
+Has Alot in Common with **Strategy** <br/>
+The **Intent** of This Pattern is To Make it Possible to Define a Family of Classes that Are All Variations of A Family of Component
+
+![](BehavioralPatterns/Template/Template.png)
+
+##### Note Strategy / Template Difference (The Purpose)
+
+Strategy and Template is Very Similar but the Difference Between the Two Lies in Structure and Implementation. <br/>
+Both allow us to Change the Variable Parts of Component While Reusing the Common Pars, <br/>
+
+Strategy: allows to Do It Dynamically at the runtime <br/>
+Template: The Complete Component is Determined the moment the concrete class is defined <br/>
+
+Template **use Case** might be More Suitable where we want to create prepackaged variations of Component
+
+**Template Code Snippet**
+
+```javascript
+class Shipping {
+  calculate() {
+    throw new Error('calculate() must be implemented');
+  }
+}
+
+class UPS extends Shipping {
+  constructor() {
+    super();
+    this.calculate = function (packageMoney) {
+      console.log('Passed Package Money Here');
+      console.log(packageMoney);
+      // calculations...
+      return '$45.95';
+    };
+  }
+}
+
+class Fedex extends Shipping {
+  constructor() {
+    super();
+    this.calculate = function (packageMoney) {
+      console.log('Passed Package Money Here');
+      console.log(packageMoney);
+      // calculations...
+      return '$43.20';
+    };
+  }
+}
+
+var packageMoney = { from: '76712', to: '10012', weigth: 'lkg' };
+var ups = new UPS();
+var fedex = new Fedex();
+
+console.log('UPS Strategy: ' + ups.calculate(packageMoney));
+console.log('USPS Strategy: ' + fedex.calculate(packageMoney));
+```
